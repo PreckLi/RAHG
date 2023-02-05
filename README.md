@@ -8,6 +8,7 @@ Official implement of RAHG: A Role-Aware Hypergraph Neural Network for Node Clas
 - python main.py
 ## Cite
 - If you are interested in our work and have used our code in your research, please quote as follows::
+```
   @article{2023RAHG,
     title={RAHG: A Role-Aware Hypergraph Neural Network for Node Classification in Graphs},
     keywords={Graph Neural Networks, Graph Representation, Node Classification, Hypergraph},
@@ -16,3 +17,4 @@ Official implement of RAHG: A Role-Aware Hypergraph Neural Network for Node Clas
     year={2023},
     publisher={IEEE}
   }
+```
