@@ -10,7 +10,7 @@ def train(model, args, data: Data):
     model = model.to(device)
     optimizer = torch.optim.Adam(model.parameters(), lr=args.lr, weight_decay=5e-4)
     model.train()
-    max_acc = -1
+    min_loss = 1e10
     for epoch in range(1, 1 + args.epochs):
         optimizer.zero_grad()
         out = model(data, args)
@@ -19,10 +19,10 @@ def train(model, args, data: Data):
         optimizer.step()
 
         test_loss, test_acc = val_evaluate(model, data, args)
-        if test_acc > max_acc:
+        if test_loss < min_loss:
             torch.save(model.state_dict(), f'latest_{args.dataset}.pth')
             print("Model saved at epoch{}".format(epoch))
-            max_acc = test_acc
+            min_loss = test_loss
         if epoch % 100 == 0:
             test_loss, test_acc = val_evaluate(model, data, args)
             print('epoch:{},loss:{},test loss:{},test accuracy:{}'.format(epoch, loss.data, test_loss, test_acc))
