@@ -19,10 +19,10 @@ def train(model, args, data: Data):
         optimizer.step()
 
         test_loss, test_acc = val_evaluate(model, data, args)
-        if test_loss < min_loss:
+        if loss < min_loss:
             torch.save(model.state_dict(), f'latest_{args.dataset}.pth')
             print("Model saved at epoch{}".format(epoch))
-            min_loss = test_loss
+            min_loss = loss
         if epoch % 100 == 0:
             test_loss, test_acc = val_evaluate(model, data, args)
             print('epoch:{},loss:{},test loss:{},test accuracy:{}'.format(epoch, loss.data, test_loss, test_acc))
