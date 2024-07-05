@@ -21,7 +21,7 @@ parser.add_argument('--nhid', type=int, default=128, help='hidden size')
 parser.add_argument('--epochs', type=int, default=400, help='maximum number of epochs')
 parser.add_argument('--dropout', type=float, default=0.6, help='dropout')
 parser.add_argument('--heads', type=int, default=8, help='attention heads')
-parser.add_argument('--residual', type=bool, default=False, help='residual')
+parser.add_argument('--residual', type=bool, default=True, help='residual')
 parser.add_argument('--fusion_type', type=str, default='attention', help='attention or concat')
 args = parser.parse_args()
 
